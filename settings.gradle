@@ -17,4 +17,4 @@ rootProject.name = "SatellitiesViewer"
 include ':app'
 include ':core:common'
 include ':feature:satellities_list'
-include ':feature:satellities_detail'
+include ':feature:satellite_detail'
