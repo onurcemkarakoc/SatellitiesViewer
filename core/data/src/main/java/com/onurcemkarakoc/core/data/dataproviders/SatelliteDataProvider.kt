@@ -6,9 +6,9 @@ import com.onurcemkarakoc.core.data.model.SatelliteDetail
 import kotlinx.coroutines.delay
 
 class SatelliteDataProvider(private val gson: Gson) {
-    suspend fun getSatelliteList(jsonString: String) {
+    suspend fun getSatelliteList(jsonString: String): List<Satellite> {
         delay(2000) // fake delay
-        gson.fromJson(jsonString, Array<Satellite>::class.java).toList()
+        return gson.fromJson(jsonString, Array<Satellite>::class.java).toList()
     }
 
     suspend fun getSatelliteDetail(jsonString: String,id:String) {
