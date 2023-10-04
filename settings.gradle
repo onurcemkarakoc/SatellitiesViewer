@@ -15,6 +15,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "SatellitiesViewer"
 include ':app'
-include ':core:common'
+include ':core'
 include ':feature:satellities_list'
 include ':feature:satellite_detail'

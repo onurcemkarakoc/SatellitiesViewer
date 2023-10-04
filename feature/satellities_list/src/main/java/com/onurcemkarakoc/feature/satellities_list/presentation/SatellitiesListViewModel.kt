@@ -1,4 +1,4 @@
-package com.onurcemkarakoc.feature.satellities_list
+package com.onurcemkarakoc.feature.satellities_list.presentation
 
 import androidx.lifecycle.ViewModel
 

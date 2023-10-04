@@ -6,7 +6,7 @@
     app:startDestination="@id/satellities_list_fragment">
     <fragment
         android:id="@+id/satellities_list_fragment"
-        android:name="com.onurcemkarakoc.feature.satellities_list.SatellitiesListFragment"
+        android:name="com.onurcemkarakoc.feature.satellities_list.presentation.SatellitiesListFragment"
         android:label="SatellitiesListFragment"
         tools:layout="@layout/fragment_satellities_list" />
 </navigation>
