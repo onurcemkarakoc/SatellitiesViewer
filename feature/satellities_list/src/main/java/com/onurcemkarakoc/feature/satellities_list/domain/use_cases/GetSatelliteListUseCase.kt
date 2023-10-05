@@ -8,11 +8,11 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
-class GetSatellitiesListUseCase @Inject constructor(private val satelliteDataProvider: SatelliteDataProvider) {
-    suspend operator fun invoke(jsonString: String) = flow {
+class GetSatelliteListUseCase @Inject constructor(private val satelliteDataProvider: SatelliteDataProvider) {
+    suspend operator fun invoke() = flow {
         emit(Resource.Loading())
 
-        val result = satelliteDataProvider.getSatelliteList(jsonString)
+        val result = satelliteDataProvider.getSatelliteList()
         emit(Resource.Success(result))
 
     }.catch {

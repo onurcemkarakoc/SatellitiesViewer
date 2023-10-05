@@ -1,7 +1,7 @@
-package com.onurcemkarakoc.feature.satellities_list.domain.di
+package com.onurcemkarakoc.feature.satellite_detail.domain.di
 
 import com.onurcemkarakoc.core.data.dataproviders.SatelliteDataProvider
-import com.onurcemkarakoc.feature.satellities_list.domain.use_cases.GetSatelliteListUseCase
+import com.onurcemkarakoc.feature.satellite_detail.domain.use_cases.GetSatelliteDetailUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,6 +13,6 @@ import javax.inject.Singleton
 object DomainLayerModule {
     @Provides
     @Singleton
-    fun provideGetSatelliteListUseCase(satelliteDataProvider: SatelliteDataProvider): GetSatelliteListUseCase =
-        GetSatelliteListUseCase(satelliteDataProvider)
+    fun provideGetSatelliteDetailUseCase(satelliteDataProvider: SatelliteDataProvider): GetSatelliteDetailUseCase =
+        GetSatelliteDetailUseCase(satelliteDataProvider)
 }

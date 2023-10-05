@@ -6,7 +6,7 @@
     app:startDestination="@id/satellite_detail_fragment">
     <fragment
         android:id="@+id/satellite_detail_fragment"
-        android:name="com.onurcemkarakoc.feature.satellite_detail.SatelliteDetailFragment"
+        android:name="com.onurcemkarakoc.feature.satellite_detail.presentation.SatelliteDetailFragment"
         android:label="SatellitiesListFragment"
         tools:layout="@layout/fragment_satellite_detail" />
 
@@ -15,5 +15,5 @@
         app:nullable="false"
         android:defaultValue="" />
 
-    <deepLink app:uri="teknasyon://satellite_detail/{satelliteId}" />
+    <deepLink app:uri="tknsyn://satellite_detail/{satelliteId}" />
 </navigation>

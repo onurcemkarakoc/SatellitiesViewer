@@ -1,4 +1,4 @@
-package com.onurcemkarakoc.feature.satellite_detail
+package com.onurcemkarakoc.feature.satellite_detail.presentation
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -6,10 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.onurcemkarakoc.satellities_detail.SatelliteDetailNavigationArgs
 import com.onurcemkarakoc.satellities_detail.databinding.FragmentSatelliteDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SatelliteDetailFragment : Fragment() {
 
     private var binding: FragmentSatelliteDetailBinding? = null
@@ -20,7 +23,7 @@ class SatelliteDetailFragment : Fragment() {
         args.satelliteId
     }
 
-    private lateinit var viewModel: SatelliteDetailViewModel
+    private val viewModel: SatelliteDetailViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,8 +35,11 @@ class SatelliteDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SatelliteDetailViewModel::class.java)
-        binding?.tvSatelliteId?.text = satelliteId
+        viewModel.getSatelliteDetail(satelliteId)
+
+        viewModel.satelliteDetail.observe(viewLifecycleOwner){
+            binding?.tvSatelliteId?.text = it?.toString()
+        }
     }
 
 }
