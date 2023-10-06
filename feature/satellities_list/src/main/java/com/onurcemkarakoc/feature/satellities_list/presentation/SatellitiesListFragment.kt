@@ -21,8 +21,8 @@ class SatellitiesListFragment : Fragment() {
     private var binding: FragmentSatellitiesListBinding? = null
 
     private val adapter by lazy {
-        SatellitiesAdapter { satelliteId ->
-            findNavController().toDetail(satelliteId)
+        SatellitiesAdapter { satelliteId, satelliteName ->
+            findNavController().toDetail(satelliteId, satelliteName)
         }
     }
 

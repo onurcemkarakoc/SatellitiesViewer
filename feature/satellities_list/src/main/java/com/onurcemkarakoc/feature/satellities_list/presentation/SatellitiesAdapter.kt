@@ -11,7 +11,7 @@ import com.onurcemkarakoc.core.data.model.Satellite
 import com.onurcemkarakoc.feature.satellities_list.R
 import com.onurcemkarakoc.feature.satellities_list.databinding.ItemSatelliteListLayoutBinding
 
-class SatellitiesAdapter(private val onItemClicked: (satelliteId: String) -> Unit) :
+class SatellitiesAdapter(private val onItemClicked: (satelliteId: String, satelliteNAme: String) -> Unit) :
     ListAdapter<Satellite, SatellitiesAdapter.ViewHolder>(object :
         DiffUtil.ItemCallback<Satellite>() {
 
@@ -38,10 +38,10 @@ class SatellitiesAdapter(private val onItemClicked: (satelliteId: String) -> Uni
 
     class ViewHolder(private val itemSatelliteListLayoutBinding: ItemSatelliteListLayoutBinding) :
         RecyclerView.ViewHolder(itemSatelliteListLayoutBinding.root) {
-        fun bind(item: Satellite, onItemClicked: (satelliteId: String) -> Unit) {
+        fun bind(item: Satellite, onItemClicked: (satelliteId: String, satelliteNAme: String) -> Unit) {
             itemSatelliteListLayoutBinding.apply {
                 root.setOnClickListener {
-                    onItemClicked(item.id.toString())
+                    onItemClicked(item.id.toString(),item.name)
                 }
                 tvSatelliteName.text = item.name
 

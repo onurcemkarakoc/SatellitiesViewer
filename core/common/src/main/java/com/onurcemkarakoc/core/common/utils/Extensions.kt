@@ -20,7 +20,7 @@ fun RecyclerView.addDivider() =
         DividerItemDecoration(context, (this.layoutManager as LinearLayoutManager).orientation)
     )
 
-fun NavController.toDetail(id: String) {
-    val uri = Uri.parse("tknsyn://satellite_detail/$id")
+fun NavController.toDetail(satelliteId: String,satelliteName: String) {
+    val uri = Uri.parse("tknsyn://satellite_detail/?satelliteId=$satelliteId&satelliteName=$satelliteName")
     this.navigate(uri)
 }
