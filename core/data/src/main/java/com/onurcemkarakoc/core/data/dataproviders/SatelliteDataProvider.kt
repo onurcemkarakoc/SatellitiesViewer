@@ -8,6 +8,8 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import com.google.gson.Gson
 import com.onurcemkarakoc.core.common.Constants
 import com.onurcemkarakoc.core.common.utils.readJsonAsset
+import com.onurcemkarakoc.core.data.model.Position
+import com.onurcemkarakoc.core.data.model.PositionItem
 import com.onurcemkarakoc.core.data.model.Satellite
 import com.onurcemkarakoc.core.data.model.SatelliteDetail
 import kotlinx.coroutines.delay
@@ -48,5 +50,12 @@ class SatelliteDataProvider(
             it[stringPreferencesKey(id)] = gson.toJson(satelliteDetail)
         }
         return satelliteDetail
+    }
+
+    suspend fun getSatellitePositions(id: String) : PositionItem? {
+        val jsonString= context.readJsonAsset(Constants.POSITIONS_JSON_FILE_NAME)
+        val position = gson.fromJson(jsonString,Position::class.java)
+        val list = position.list.find { it.id == id }
+        return list
     }
 }

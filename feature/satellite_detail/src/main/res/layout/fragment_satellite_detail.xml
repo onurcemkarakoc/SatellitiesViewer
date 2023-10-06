@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@android:color/white"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context="com.onurcemkarakoc.feature.satellite_detail.presentation.SatelliteDetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,8 +14,9 @@
 
         <TextView
             android:id="@+id/tv_satellite_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:textColor="@android:color/black"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -27,9 +28,10 @@
 
         <TextView
             android:id="@+id/tv_satellite_flight_date"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:gravity="center"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@id/tv_satellite_height"
@@ -40,9 +42,10 @@
 
         <TextView
             android:id="@+id/tv_satellite_height"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
+            android:gravity="center"
             android:textColor="@android:color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@id/tv_satellite_cost"
@@ -53,9 +56,10 @@
 
         <TextView
             android:id="@+id/tv_satellite_cost"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:gravity="center"
             android:textColor="@android:color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@id/tv_satellite_last_position"
@@ -66,8 +70,10 @@
 
         <TextView
             android:id="@+id/tv_satellite_last_position"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
             android:textColor="@android:color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
