@@ -9,10 +9,10 @@ import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class GetSatelliteListUseCase @Inject constructor(private val satelliteDataProvider: SatelliteDataProvider) {
-    suspend operator fun invoke() = flow {
+    suspend operator fun invoke(query:String) = flow {
         emit(Resource.Loading())
 
-        val result = satelliteDataProvider.getSatelliteList()
+        val result = satelliteDataProvider.getSatelliteList(query)
         emit(Resource.Success(result))
 
     }.catch {

@@ -1,7 +1,7 @@
 package com.onurcemkarakoc.feature.satellities_list.presentation
 
-import android.os.Bundle
 import androidx.core.view.isVisible
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.onurcemkarakoc.core.common.base.BaseFragment
@@ -22,15 +22,23 @@ class SatellitiesListFragment :
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel.getSatelliteList()
-    }
-
     override fun onDataBound() {
         handleState(viewModel)
         listenEvents()
         binding.apply {
+
+            rvSatellities.adapter = adapter
+            rvSatellities.addDivider()
+
+            etInput.doOnTextChanged { text, _, _, _ ->
+                val isEmpty = text.isNullOrEmpty()
+                ivRight.isVisible = isEmpty.not()
+                viewModel.queryFlow.value = text?.toString().orEmpty()
+            }
+            ivRight.setOnClickListener {
+                etInput.setText("")
+                rvSatellities.layoutManager?.scrollToPosition(0)
+            }
         }
     }
 
@@ -40,6 +48,7 @@ class SatellitiesListFragment :
                 tvError.text = it
                 tvError.isVisible = true
                 rvSatellities.isVisible = false
+                mcvSearch.isVisible = false
             }
         }
     }
@@ -48,11 +57,9 @@ class SatellitiesListFragment :
         viewModel.satellitiesList.observe(viewLifecycleOwner) {
             adapter.submitList(it)
             binding.apply {
-                rvSatellities.adapter = adapter
                 rvSatellities.isVisible = true
+                mcvSearch.isVisible = true
                 tvError.isVisible = false
-                rvSatellities.addDivider()
-
             }
         }
     }

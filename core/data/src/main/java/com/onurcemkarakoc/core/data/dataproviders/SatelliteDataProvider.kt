@@ -21,10 +21,13 @@ class SatelliteDataProvider(
     private val gson: Gson,
     private val dataStore: DataStore<Preferences>
 ) {
-    suspend fun getSatelliteList(): List<Satellite> {
-        val jsonString= context.readJsonAsset(Constants.SATELLITES_JSON_FILE_NAME)
+    suspend fun getSatelliteList(query: String): List<Satellite> {
+        val jsonString = context.readJsonAsset(Constants.SATELLITES_JSON_FILE_NAME)
         delay(1000) // fake delay
-        return gson.fromJson(jsonString, Array<Satellite>::class.java).toList()
+        val list = gson.fromJson(jsonString, Array<Satellite>::class.java).toList()
+        return list.filter {
+            it.name.contains(query, true)
+        }
     }
 
     suspend fun getSatelliteDetail(id: String): SatelliteDetail? {
@@ -52,10 +55,9 @@ class SatelliteDataProvider(
         return satelliteDetail
     }
 
-    suspend fun getSatellitePositions(id: String) : PositionItem? {
-        val jsonString= context.readJsonAsset(Constants.POSITIONS_JSON_FILE_NAME)
-        val position = gson.fromJson(jsonString,Position::class.java)
-        val list = position.list.find { it.id == id }
-        return list
+    fun getSatellitePositions(id: String): PositionItem? {
+        val jsonString = context.readJsonAsset(Constants.POSITIONS_JSON_FILE_NAME)
+        val position = gson.fromJson(jsonString, Position::class.java)
+        return position.list.find { it.id == id }
     }
 }

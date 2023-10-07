@@ -18,5 +18,5 @@
         app:argType="string"
         app:nullable="false"
         android:defaultValue="" />
-    <deepLink app:uri="tknsyn://satellite_detail/?satelliteId={satelliteId}&amp;satelliteName={satelliteName}" />
+    <deepLink app:uri="onurcem://satellite_detail/?satelliteId={satelliteId}&amp;satelliteName={satelliteName}" />
 </navigation>

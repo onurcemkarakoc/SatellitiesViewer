@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:paddingVertical="8dp"
     android:layout_height="wrap_content"
-    android:background="@android:color/white">
+    android:background="@color/bg_color">
 
     <ImageView
         android:id="@+id/iv_state_icon"
@@ -13,10 +13,17 @@
         android:layout_height="wrap_content"
         android:contentDescription="@null"
         android:src="@drawable/circle_shape"
+        android:layout_marginEnd="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tv_satellite_name"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guideline"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
     <TextView
         android:id="@+id/tv_satellite_name"
@@ -28,7 +35,8 @@
         android:maxLines="1"
         android:gravity="start|center"
         android:ellipsize="end"
-        app:layout_constraintStart_toEndOf="@id/iv_state_icon"
+        app:layout_constraintBottom_toTopOf="@id/tv_satellite_state"
+        app:layout_constraintStart_toEndOf="@id/guideline"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Satellite Name" />
 

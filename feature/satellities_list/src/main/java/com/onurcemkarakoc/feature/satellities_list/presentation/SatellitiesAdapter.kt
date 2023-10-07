@@ -32,10 +32,6 @@ class SatellitiesAdapter(private val onItemClicked: (satelliteId: String, satell
         holder.bind(item, onItemClicked)
     }
 
-    fun clearList() {
-        submitList(null)
-    }
-
     class ViewHolder(private val itemSatelliteListLayoutBinding: ItemSatelliteListLayoutBinding) :
         RecyclerView.ViewHolder(itemSatelliteListLayoutBinding.root) {
         fun bind(item: Satellite, onItemClicked: (satelliteId: String, satelliteNAme: String) -> Unit) {

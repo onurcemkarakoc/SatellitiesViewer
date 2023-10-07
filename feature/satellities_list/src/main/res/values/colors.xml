@@ -2,4 +2,5 @@
 <resources>
     <color name="active_state_color">#00FF00</color>
     <color name="passive_state_color">#FF0000</color>
+    <color name="bg_color">#F3F3F3</color>
 </resources>

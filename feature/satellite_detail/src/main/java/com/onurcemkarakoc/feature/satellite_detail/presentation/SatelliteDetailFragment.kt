@@ -3,16 +3,14 @@ package com.onurcemkarakoc.feature.satellite_detail.presentation
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.onurcemkarakoc.core.common.base.BaseFragment
+import com.onurcemkarakoc.core.common.utils.makeHtml
 import com.onurcemkarakoc.core.data.model.PositionItem
 import com.onurcemkarakoc.core.data.model.SatelliteDetail
+import com.onurcemkarakoc.satellities_detail.R
 import com.onurcemkarakoc.satellities_detail.SatelliteDetailNavigationArgs
 import com.onurcemkarakoc.satellities_detail.databinding.FragmentSatelliteDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -98,7 +96,7 @@ class SatelliteDetailFragment : BaseFragment<FragmentSatelliteDetailBinding>(Fra
         binding.apply {
             positionItem?.let {
                 val position = it.positions[count - 1].toString()
-                tvSatelliteLastPosition.text = position
+                tvSatelliteLastPosition.text = root.context.getString(R.string.last_position,position).makeHtml()
             }
         }
     }
@@ -109,9 +107,9 @@ class SatelliteDetailFragment : BaseFragment<FragmentSatelliteDetailBinding>(Fra
             tvError.isVisible = false
 
             tvSatelliteName.text = satelliteName
-            tvSatelliteCost.text = safeSatelliteDetail.cost_per_launch.toString()
+            tvSatelliteCost.text = tvSatelliteCost.context.getString(R.string.cost,safeSatelliteDetail.cost_per_launch.toString()).makeHtml()
             tvSatelliteFlightDate.text = safeSatelliteDetail.first_flight
-            tvSatelliteHeight.text = safeSatelliteDetail.height.toString()
+            tvSatelliteHeight.text = root.context.getString(R.string.height_mass,safeSatelliteDetail.height.toString()).makeHtml()
         }
     }
 }

@@ -1,4 +1,5 @@
 <resources>
     <string name="active">Active</string>
     <string name="passive">Passive</string>
+    <string name="search_hint">Search name</string>
 </resources>

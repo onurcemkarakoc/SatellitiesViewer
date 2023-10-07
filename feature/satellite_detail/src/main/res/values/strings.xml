@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="last_position"><![CDATA[<b>Last Position: </b>%1s]]></string>
+    <string name="cost"><![CDATA[<b>Cost: </b>%1s]]></string>
+    <string name="height_mass"><![CDATA[<b>Height/Mass: </b>%1s]]></string>
+</resources>
